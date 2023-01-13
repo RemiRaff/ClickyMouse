@@ -29,6 +29,17 @@ public class Target : MonoBehaviour
         
     }
 
+    private void OnMouseDown()
+    {
+        Destroy(gameObject);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        // destroy the object if it collides sensor
+        Destroy(gameObject);
+    }
+
     private Vector3 RandomForce()
     {
         return Vector3.up * Random.Range(minSpeed, maxSpeed);
