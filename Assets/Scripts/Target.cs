@@ -40,13 +40,16 @@ public class Target : MonoBehaviour
 
     private void OnMouseDown()
     {
-        Destroy(gameObject);
+        if (gameManager.isGameActive)
+        {
+            Destroy(gameObject);
 
-        // score when an object is destroyed
-        gameManager.UpdateScore(pointValue);
+            // score when an object is destroyed
+            gameManager.UpdateScore(pointValue);
 
-        // particules effect
-        Instantiate(explosionParticle, transform.position, explosionParticle.transform.rotation);
+            // particules effect
+            Instantiate(explosionParticle, transform.position, explosionParticle.transform.rotation);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -55,9 +58,9 @@ public class Target : MonoBehaviour
         Destroy(gameObject);
 
         // only bad can be destroyed by the sensor
-        if (!gameObject.getTag("Bad"))
+        if (!gameObject.CompareTag("Bad"))
         {
-            gameManager.GameOver()
+            gameManager.GameOver();
         }
     }
 
