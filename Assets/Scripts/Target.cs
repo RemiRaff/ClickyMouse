@@ -53,6 +53,12 @@ public class Target : MonoBehaviour
     {
         // destroy the object if it collides sensor
         Destroy(gameObject);
+
+        // only bad can be destroyed by the sensor
+        if (!gameObject.getTag("Bad"))
+        {
+            gameManager.GameOver()
+        }
     }
 
     private Vector3 RandomForce()
