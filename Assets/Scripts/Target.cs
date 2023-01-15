@@ -6,6 +6,8 @@ public class Target : MonoBehaviour
 {
     // different pointValue to set in each prefabs
     public int pointValue;
+    // visual effect for target destroy
+    public ParticleSystem explosionParticle;
 
     private Rigidbody targetRb;
     private float minSpeed = 12;
@@ -42,6 +44,9 @@ public class Target : MonoBehaviour
 
         // score when an object is destroyed
         gameManager.UpdateScore(pointValue);
+
+        // particules effect
+        Instantiate(explosionParticle, transform.position, explosionParticle.transform.rotation);
     }
 
     private void OnTriggerEnter(Collider other)
