@@ -68,7 +68,7 @@ public class GameManager : MonoBehaviour
         highScore = save;
     }
 
-    public void StartGame()
+    public void StartGame(float difficulty)
     {
         // gameover spawn gestion
         isGameActive = true;
@@ -82,5 +82,8 @@ public class GameManager : MonoBehaviour
 
         // Title screen deletion
         titleScreen.gameObject.SetActive(false);
+
+        // for higher difficulty the spawn time is smaller
+        spawnRate /= difficulty;
     }
 }

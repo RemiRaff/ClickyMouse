@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class DifficultyButton : MonoBehaviour
 {
+    public float difficulty;
+
     private Button button;
     private GameManager gameManager;
     // Start is called before the first frame update
@@ -24,6 +26,6 @@ public class DifficultyButton : MonoBehaviour
     void SetDifficulty()
     {
         // Debug.Log(gameObject.name + " was clicked");
-        gameManager.StartGame();
+        gameManager.StartGame(difficulty);
     }
 }
