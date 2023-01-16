@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI highScoreText;
     public TextMeshProUGUI gameOverText;
     public Button restartButton;
+    public GameObject titleScreen;
 
     public bool isGameActive;
 
@@ -23,16 +24,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // gameover spawn gestion
-        isGameActive = true;
-        // set score to zero and update
-        score = 0;
-        // highScore = 0;
-        UpdateScore(0);
 
-        // wait and spawn target
-        StartCoroutine(SpawnTarget());
-}
+    }
 
     // Update is called once per frame
     void Update()
@@ -73,5 +66,21 @@ public class GameManager : MonoBehaviour
         int save = highScore;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         highScore = save;
+    }
+
+    public void StartGame()
+    {
+        // gameover spawn gestion
+        isGameActive = true;
+        // set score to zero and update
+        score = 0;
+        // highScore = 0;
+        UpdateScore(0);
+
+        // wait and spawn target
+        StartCoroutine(SpawnTarget());
+
+        // Title screen deletion
+        titleScreen.gameObject.SetActive(false);
     }
 }
