@@ -24,7 +24,11 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        if (PlayerPrefs.HasKey("remi_unity_hs"))
+        {
+            highScore = PlayerPrefs.GetInt("remi_unity_hs");
+        }
+        // Debug.Log("high score"+highScore);
     }
 
     // Update is called once per frame
@@ -47,11 +51,12 @@ public class GameManager : MonoBehaviour
     {
         score += scoreToAdd;
         scoreText.text = "Score: " + score;
+
         if (highScore <= score)
         {
             highScore = score;
-            highScoreText.text = "High Score: " + highScore;
         }
+        highScoreText.text = "High Score: " + highScore;
     }
 
     public void GameOver()
@@ -59,13 +64,12 @@ public class GameManager : MonoBehaviour
         gameOverText.gameObject.SetActive(true);
         isGameActive = false;
         restartButton.gameObject.SetActive(true);
+        PlayerPrefs.SetInt("remi_unity_hs", highScore);
     }
 
     public void RestartGame()
     {
-        int save = highScore;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        highScore = save;
     }
 
     public void StartGame(float difficulty)
