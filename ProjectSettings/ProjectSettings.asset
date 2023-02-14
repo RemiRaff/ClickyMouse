@@ -44,8 +44,8 @@ PlayerSettings:
   m_HolographicTrackingLossScreen: {fileID: 0}
   defaultScreenWidth: 1920
   defaultScreenHeight: 1080
-  defaultScreenWidthWeb: 960
-  defaultScreenHeightWeb: 600
+  defaultScreenWidthWeb: 854
+  defaultScreenHeightWeb: 480
   m_StereoRenderingPath: 0
   m_ActiveColorSpace: 1
   m_MTRendering: 1
@@ -154,7 +154,9 @@ PlayerSettings:
   resetResolutionOnWindowResize: 0
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
-  applicationIdentifier: {}
+  applicationIdentifier:
+    Android: com.DefaultCompany.ClickyMouse
+    Standalone: com.DefaultCompany.ClickyMouse
   buildNumber:
     Standalone: 0
     iPhone: 0

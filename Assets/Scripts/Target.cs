@@ -10,11 +10,11 @@ public class Target : MonoBehaviour
     public ParticleSystem explosionParticle;
 
     private Rigidbody targetRb;
-    private float minSpeed = 6; // 12
-    private float maxSpeed = 11; // 16
+    private float minSpeed = 12; // 12
+    private float maxSpeed = 16; // 16
     private float maxTorque = 10;
     private float xRange = 4;
-    private float ySpawnPos = 6;
+    private float ySpawnPos = 0; // pour spawn hors écran
     private GameManager gameManager;
 
     // Start is called before the first frame update
